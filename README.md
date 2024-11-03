@@ -1,4 +1,4 @@
-# TokyoDark.nvim
+# Nightfall.nvim
 
 A dark Neovim theme written in Lua
 
