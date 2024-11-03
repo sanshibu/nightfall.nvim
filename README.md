@@ -22,7 +22,12 @@ A clean, dark Neovim theme written in Lua, inspired by the colors of Tokyo at ni
   "sanshibu/nightfall.nvim",
   lazy = false,
   priority = 1000,
-  opts = {},
+  config = function()
+    require("nightfall").setup({
+      -- your options here
+    })
+    vim.cmd([[colorscheme nightfall]])
+  end,
 }
 ```
 
