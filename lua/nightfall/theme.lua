@@ -50,7 +50,9 @@ function M.setup()
 	require("nightfall.plugins.gitsigns")
 	require("nightfall.plugins.lsp")
 	require("nightfall.plugins.indent-blankline")
-	require("tokyodark.plugins.nvim-tree")
-	require("tokyodark.plugins.telescope")
-	require("tokyodark.plugins.treesitter")
+	require("nightfall.plugins.nvim-tree")
+	require("nightfall.plugins.telescope")
+	require("nightfall.plugins.treesitter")
 end
+
+return M
