@@ -1,12 +1,12 @@
 # 🌙 Nightfall.nvim
 
-A clean, dark Neovim theme written in Lua, inspired by the colors of Tokyo at night. Features carefully selected colors for optimal readability and a delightful coding experience.
+A clean, dark and elegant Neovim colorscheme written in Lua. Inspired by TokyoNight, OneDark, and Nord themes, but with a darker background for comfortable long coding sesions.
 
 ![Nightfall Preview](./preview.png)
 
 ## ✨ Features
 
-- 🎨 Carefully crafted color palette
+- 🎨 Carefully crafted color palette for optimal readability
 - 🔌 Support for popular plugins
 - 🌳 Full treesitter support
 - 💡 Semantic token highlighting
@@ -18,7 +18,7 @@ A clean, dark Neovim theme written in Lua, inspired by the colors of Tokyo at ni
 ### Using [lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ```lua
-{
+reurn {
   "sanshibu/nightfall.nvim",
   lazy = false,
   priority = 1000,
@@ -51,13 +51,14 @@ vim.cmd[[colorscheme nightfall]]
 - [WhichKey](https://github.com/folke/which-key.nvim)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [BufferLine](https://github.com/akinsho/bufferline.nvim)
+- and many more ...
 
 ## 🎭 Color Palette
 
 | Color   | Hex       | Usage                          |
 |---------|-----------|--------------------------------|
-| bg      | `#0a0b11` | Background                     |
-| fg      | `#c0caf5` | Foreground                     |
+| bg      | `#0f111a` | Background                     |
+| fg      | `#1a1d28` | Foreground                     |
 | blue    | `#7aa2f7` | Functions, Special Keywords    |
 | cyan    | `#7dcfff` | Constants, Special Characters  |
 | green   | `#9ece6a` | Strings, Git Add              |
@@ -73,6 +74,9 @@ TokyoDark comes with sane defaults, but you can customize it to your liking:
 ```lua
 require("nightfall").setup({
   -- Custom options here
+  transparent = false,
+  italic_comments = true,
+  italic_keywords = true
 })
 ```
 

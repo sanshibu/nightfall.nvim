@@ -1,39 +1,61 @@
-local colors = {
+local M = {}
 
-	-- Colors
-	bg = "#0A0E14",
-	bg_sidebar = "#0C1015",
-	bg_statusline = "#0A0E14",
-	bg_tabline = "#0A0E14",
-	bg_tabline_active = "#0C1015",
-	bg_selection = "#4E5A65",
-	fg = "#C5C8C6",
-	fg_dark = "#848B98",
-	fg_gutter = "#5C6370",
-	fg_sidebar = "#848B98",
-	border = "#4E5A65",
-	blue = "#61AFEF",
-	cyan = "#56B6C2",
-	green = "#98C379",
-	magenta = "#C678DD",
-	orange = "#E5C07B",
-	red = "#E06C75",
-	yellow = "#E5C07B",
+-- Color palette --
+M.colors = {
 
-	-- Additional colors for syntax and UI
-	comment = "#5C6370",
-	hint = "#56B6C2",
-	info = "#61AFEF",
-	warning = "#E5C07B",
-	error = "#E06C75",
+	-- Dark background colors --
+	bg_dark = "#0f111a",
+	bg = "#12141e",
+	bg_highlight = "#1a1d28",
+	bg_visual = "#2a2e3d",
+
+	-- UI elements
+	fg = "#c0caf5",
+	fg_dark = "#a9b1d6",
+	fg_gutter = "#3b4261",
+	border = "#1d2030",
+
+	-- Syntax colors
+	comment = "#565f89",
+	line_nr = "#3b4261",
+	selection = "#2e324a",
+
+	-- Base colors
+	blue = "#7aa2f7",
+	cyan = "#7dcfff",
+	green = "#9ece6a",
+	magenta = "#bb9af7",
+	purple = "#9d7cd8",
+	red = "#f7768e",
+	orange = "#ff9e64",
+	yellow = "#e0af68",
+
+	-- Diagnostics
+	error = "#db4b4b",
+	warning = "#e0af68",
+	info = "#0db9d7",
+	hint = "#1abc9c",
 
 	-- Git colors
-	git_add = "#98C379",
-	git_change = "#61AFEF",
-	git_delete = "#E06C75",
+	git_add = "#449dab",
+	git_change = "#6183bb",
+	git_delete = "#914c54",
 
 	-- Special colors
-	none = "NONE",
+	term_black = "#414868",
+	term_white = "#c0caf5",
 }
 
-return colors
+-- Terminal colors --
+M.terminal = {
+	black = M.colors.term_black,
+	red = M.colors.red,
+	green = M.colors.green,
+	yellow = M.colors.yellow,
+	blue = M.colors.blue,
+	magenta = M.colors.magenta,
+	cyan = M.colors.cyan,
+	white = M.colors.term_white,
+}
+
+return M
