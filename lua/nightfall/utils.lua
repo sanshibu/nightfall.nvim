@@ -7,6 +7,20 @@ function M.hex2rgb(hex)
 	return tonumber("0x" .. hex:sub(1, 2)), tonumber("0x" .. hex:sub(3, 4)), tonumber("0x" .. hex:sub(5, 6))
 end
 
+-- Format value for highlight command
+local function format_value(val)
+	if type(val) == "string" and val:match("^#") then
+		-- Wrap hex colors in quotes
+		return string.format("'%s'", val)
+	elseif type(val) == "string" then
+		-- Check if the value contains spaces or special characters
+		if val:match("[%s%p]") then
+			return string.format("'%s'", val)
+		end
+	end
+	return val
+end
+
 -- Set highlight group
 function M.highlight(group, style)
 	local style_with_attrs = vim.tbl_extend("force", {}, style)
@@ -44,15 +58,17 @@ function M.highlight(group, style)
 		style_with_attrs.special = table.concat(attrs, ",")
 	end
 
-	local hl = ""
+	local hl_parts = {}
 	for key, val in pairs(style_with_attrs) do
 		if val and val ~= "NONE" then
-			hl = hl .. " " .. key .. "=" .. val
+			local formatted_val = format_value(val)
+			table.insert(hl_parts, string.format("%s=%s", key, formatted_val))
 		end
 	end
 
-	if hl ~= "" then
-		vim.cmd("highlight " .. group .. hl)
+	if #hl_parts > 0 then
+		local hl_command = string.format("highlight %s %s", group, table.concat(hl_parts, " "))
+		vim.cmd(hl_command)
 	else
 		vim.cmd("highlight clear " .. group)
 	end
