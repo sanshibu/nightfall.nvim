@@ -37,8 +37,12 @@ function M.highlight(group, style)
 	style_with_attrs.strikethrough = nil
 
 	-- Set highlight
-	style_with_attrs.sp = style_with_attrs.sp and style_with_attrs.sp or "NONE"
-	style_with_attrs.special = table.concat(attrs, ",")
+	style_with_attrs.sp = style_with_attrs.sp and style_with_attrs.sp or nil
+
+	-- Only add special if we have attributes
+	if #attrs > 0 then
+		style_with_attrs.special = table.concat(attrs, ",")
+	end
 
 	local hl = ""
 	for key, val in pairs(style_with_attrs) do
@@ -47,7 +51,11 @@ function M.highlight(group, style)
 		end
 	end
 
-	vim.cmd("highlight " .. group .. hl)
+	if hl ~= "" then
+		vim.cmd("highlight " .. group .. hl)
+	else
+		vim.cmd("highlight clear " .. group)
+	end
 end
 
 return M
